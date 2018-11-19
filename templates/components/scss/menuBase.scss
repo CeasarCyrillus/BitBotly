@@ -1,0 +1,119 @@
+@import './static/scss/settings.scss';
+.menuBase
+{
+    position: fixed;
+    box-shadow: -10px 0px 50px rgba(0, 0, 0, 0.2);
+    top: $headerHeight;
+    bottom: 0;
+    right: 0;
+    background-color: $menuBackColor;
+    transition: all .3s ease-in-out;
+    z-index: 101;
+    &[status="open"]
+    {
+        transform: translateX(0) !important;
+        .menuItems
+        {
+            transform: translateX(0);
+            transform: scale(1);
+        }
+        .closeMenuIcon
+        {
+            transform: rotate(180deg);
+        }
+    }
+
+    h1
+    {
+        font-size: 30px;
+        text-align: center;
+        color: $darkColor;
+        cursor: default;
+    }
+    .closeMenuIcon
+    {
+        color: $darkColor;
+        position: absolute;
+        left: 5px;
+        top: 5px;
+        font-size: 30px;
+        cursor: pointer;
+        transition: all 1s;
+    }
+    .menuItems
+    {
+        list-style-type: none;
+        color: $darkColor;
+        font-size: 25px;
+        transition: transform .6s cubic-bezier(0.215, 0.610, 0.355, 1);
+        transform: translateX(100%);
+        transform: scale(0);
+        .item
+        {          
+            cursor: pointer;
+            text-align: center;
+            padding: 10px;
+            margin: 0px 3px;
+            transition: color .2s;
+            &:hover
+            {
+                color: $white;
+                background-color: $ligthColor2;
+                border-radius: 10px;
+                .menuIcon
+                {
+                    color: $white;
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+            }
+            .menuIcon
+            {
+                color: $darkColor;
+                position: absolute;
+                left: 10px;
+                transition: all .3s;
+                opacity: 0.5;
+                transform: translateX(1vw);
+            }
+        }
+
+        .divider
+        {
+            background-image: radial-gradient($darkColor,  $ligthColor2, $ligthColor);
+            height: 2px;
+            width: 90%;
+            margin: 20px auto;
+        }
+    }
+}
+@media screen and (max-width: 768px)
+{
+    .menuBase
+    {
+        width: 100vw;
+        transform: translateX(100vw);
+        box-shadow: none;
+        .divider
+        {
+            width: 70%;
+        }
+        .menuItems
+        {
+            li
+            {
+                .menuIcon
+                {
+                    opacity: 1;
+                    transform: none;
+                    color: $darkColor;
+                    left: 20%;
+                    &:hover
+                    {
+                        color: $white;
+                    }
+                }
+            }
+        }
+    }
+}

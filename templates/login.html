@@ -1,0 +1,20 @@
+{% extends 'templates/base/base.html'%}
+{% from 'templates/macros.html' import display_form_errors with context %}
+{% from 'templates/macros.html' import show_msgs with context %}
+{% from 'templates/macros.html' import input_field with context %}
+{# {% block id %}loginMenu{% endblock %}
+{% block class %}menuForm{% endblock %}
+{% block heading %}Login{% endblock %} #}
+{% block content %}
+<form action="{{ url_for('login') }}" method="post" class="userForm">
+    <h1>Login</h1>
+    <br>
+    {{ input_field('*Username', 'far fa-user', data.forms['login_form'].username) }}
+    {{ input_field('*Password', 'fas fa-key', data.forms['login_form'].password) }}
+    {{ data.forms['login_form'].submit }}
+    <p class="grayDesc">Don't have an account? <a href="{{ url_for('register') }}">click here to sign up for free</a></p>
+    {{ data.forms['login_form'].csrf_token }}
+    {{ show_msgs() }}
+    {{ display_form_errors(data.forms['login_form']) }}
+</form>
+{% endblock %}

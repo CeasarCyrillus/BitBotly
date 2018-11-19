@@ -1,0 +1,38 @@
+{% extends 'templates/components/menuBase.html'%}
+{% from "templates/macros.html" import nav_link with context %}
+{% block id %}mainMenu{% endblock %}
+
+{% block heading %}
+    Menu
+{% endblock %}
+
+{% block content %}
+    <ul id="menuItems">
+        <div class="menuGroup">
+            {{ nav_link('home', 'Home', 'fas fa-home') }}
+            {{ nav_link('blog', 'Blog', 'fas fa-book') }}
+        </div>
+        {% if not g.logged_in %}
+            <div class="menuGroup">
+                {{ nav_link('login', 'Login', 'fas fa-key') }}
+                {{ nav_link('register', 'Sign up', 'fas fa-users') }}
+            </div>
+        {% else %}
+            <div class="menuGroup">
+            {{ nav_link('profile', 'Profile', 'fas fa-user-circle') }}
+            {{ nav_link('privacy', 'Privacy', 'fas fa-user-secret') }}
+            {{ nav_link('home', 'Portfolio', 'far fa-chart-bar') }}
+            {{ nav_link('logout', 'Marketplace', 'fas fa-store') }}
+            </div>   
+        {% endif %}
+        <div class="menuGroup">
+        {{ nav_link('performance', 'Performance', 'fas fa-chart-line') }}
+        {{ nav_link('contact', 'Contact', 'far fa-envelope') }}
+        {{ nav_link('faq', 'FAQ', 'far fa-question-circle') }}
+
+        {% if g.logged_in %}
+            {{ nav_link('logout', 'Logout', 'fas fa-sign-out-alt') }}
+        {% endif %}
+        </div>
+    </ul>
+{% endblock%}

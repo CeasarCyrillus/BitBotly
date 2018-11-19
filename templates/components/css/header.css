@@ -1,0 +1,31 @@
+#topHeader {
+  height: 60px;
+  background-color: #1D3557;
+  box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 0;
+  z-index: 100; }
+  #topHeader #logoWrapper {
+    position: fixed;
+    top: 12px;
+    left: 12px; }
+    #topHeader #logoWrapper .smallLogo, #topHeader #logoWrapper h1 {
+      color: #E63946;
+      font-size: 30px;
+      text-shadow: 2px 2px 2px black; }
+    #topHeader #logoWrapper h1 {
+      display: inline;
+      font-weight: 100; }
+  #topHeader #menuIcon, #topHeader #profileIcon {
+    cursor: pointer;
+    font-size: 30px;
+    position: fixed;
+    right: 12px;
+    top: 14px;
+    color: #FFF;
+    transition: transform .3s; }
+  #topHeader #profileIcon {
+    right: 50px; }
+
+#headerSpacer {
+  height: 120px; }

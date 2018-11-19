@@ -1,0 +1,80 @@
+#mainMenu {
+  box-shadow: -10px 0px 50px rgba(0, 0, 0, 0.2);
+  width: 300px;
+  background-color: #EDF2F4;
+  transform: translateX(300px);
+  transition: all .3s ease-in-out; }
+  #mainMenu.show {
+    transform: translateX(0); }
+    #mainMenu.show #menuItems {
+      transform: translateX(0);
+      transform: scale(1); }
+  #mainMenu h1 {
+    font-size: 30px;
+    text-align: center;
+    color: #1D3557;
+    cursor: default; }
+  #mainMenu .closeMenuIcon {
+    display: none; }
+  #mainMenu #menuItems {
+    list-style-type: none;
+    color: #1D3557;
+    font-size: 25px;
+    transition: transform 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+    transform: translateX(100%);
+    transform: scale(0); }
+    #mainMenu #menuItems .menuGroup {
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+      margin-bottom: 15px;
+      padding: 5px 0; }
+    #mainMenu #menuItems a {
+      color: #1D3557;
+      text-decoration: none; }
+    #mainMenu #menuItems li {
+      display: block;
+      position: relative;
+      cursor: pointer;
+      text-align: right;
+      padding: 10px;
+      margin: 0px 3px;
+      transition: color .5s; }
+      #mainMenu #menuItems li:hover {
+        color: #FFF;
+        background-color: #457B9D;
+        border-radius: 10px; }
+        #mainMenu #menuItems li:hover .menuIcon {
+          color: #FFF;
+          opacity: 1;
+          transform: translateX(0); }
+      #mainMenu #menuItems li.active {
+        background-color: gray;
+        text-decoration: underline;
+        cursor: default;
+        color: #FFF;
+        border-radius: 10px; }
+        #mainMenu #menuItems li.active .menuIcon {
+          color: #FFF;
+          opacity: 1;
+          transform: translateX(0); }
+      #mainMenu #menuItems li .menuIcon {
+        margin: auto;
+        color: #1D3557;
+        position: absolute;
+        left: 10px;
+        top: 15px;
+        transition: all .3s;
+        opacity: 0.5;
+        transform: translateX(1vw); }
+
+@media screen and (max-width: 768px) {
+  #mainMenu {
+    width: 100vw;
+    transform: translateX(100vw);
+    box-shadow: none; }
+    #mainMenu #menuItems li .menuIcon {
+      opacity: 1;
+      transform: none;
+      color: #1D3557;
+      left: 20%; }
+      #mainMenu #menuItems li .menuIcon:hover {
+        color: #FFF; } }

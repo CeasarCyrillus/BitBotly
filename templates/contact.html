@@ -1,0 +1,28 @@
+{% extends 'templates/base/base.html'%}
+{% from 'templates/macros.html' import show_msgs with context %}
+{% from 'templates/macros.html' import display_form_errors with context %}
+{% from 'templates/macros.html' import input_field with context %}
+{% block title %}Contact{% endblock %}
+{% block content %}
+<form action="{{ url_for('contact') }}" method="post" class="userForm">
+    <h1>Contact us</h1>
+    <br>
+    <p class="grayDesc">Got a question for us or just want to say hi?
+    Get in touch by filling in the form or send us an email at <a href="mailto:info@bitbotly.com">info@bitbotly.com</a><br>
+    You can also visit the <a href="{{ url_for('blog') }}">blog</a> or the
+    <a href="{{ url_for('faq') }}">frequently asked questions</a></p>
+    <br>
+    <form action="{{ url_for('contact') }}" method="post" id="contactForm" class="userForm">
+    {% if g.logged_in and g.user.data()['email'] %}
+        {{ data.forms['contact_form'].email(value=g.user.data()['email']) }}
+    {% else %}
+        {{ input_field('Email', 'far fa-envelope', data.forms['contact_form'].email) }}
+    {% endif %}
+
+    {{ input_field ('Message', 'fas fa-comments', data.forms['contact_form'].message)}}
+    {{ data.forms['contact_form'].submit }}
+    {{ data.forms['contact_form'].csrf_token }}
+    {{ show_msgs() }}
+    {{ display_form_errors(data.forms['contact_form']) }}
+</form>
+{% endblock %}

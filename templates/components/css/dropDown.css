@@ -1,0 +1,20 @@
+.dropDown {
+  position: fixed;
+  width: 900px;
+  z-index: 1;
+  top: 20vh;
+  left: calc(50vw - calc(900px/2));
+  box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.4); }
+  .dropDown .dropDownHeader {
+    text-align: center;
+    background-color: #A1CCE3;
+    color: #1f729e;
+    padding: 5px; }
+    .dropDown .dropDownHeader h1, .dropDown .dropDownHeader .exitDropDown {
+      display: inline; }
+    .dropDown .dropDownHeader .exitDropDown {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      font-size: 20px;
+      cursor: pointer; }

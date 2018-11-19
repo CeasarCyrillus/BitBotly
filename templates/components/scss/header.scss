@@ -1,0 +1,47 @@
+@import "./static/scss/settings.scss";
+#topHeader
+{
+  height: $headerHeight;
+  background-color: $darkColor;
+  box-shadow: $boxShadow;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  #logoWrapper
+  {
+    position: fixed;
+    top: 12px;
+    left: 12px;
+    .smallLogo, h1
+    {
+      color: $primaryColor;
+      font-size: 30px;
+      text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
+    }
+    h1
+    {
+      display: inline;
+      font-weight: 100;
+    }
+  }
+
+  #menuIcon, #profileIcon
+  {
+    cursor: pointer;
+    font-size: 30px;
+    position: fixed;
+    right: 12px;
+    top: 14px;
+    color: $white;
+    transition: transform .3s;
+  }
+  #profileIcon
+  {
+    right: 50px;
+  }
+}
+
+#headerSpacer
+{
+  height: $headerHeight*2;
+}

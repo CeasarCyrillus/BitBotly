@@ -1,0 +1,32 @@
+{% extends 'templates/base/base.html'%}
+{% from "templates/macros.html" import display_form_errors with context %}
+{# {% block id %}registerMenu{% endblock %}
+{% block class %}menuForm{% endblock %}
+{% block heading %}Register{% endblock %} #}
+<form action="{{ url_for('register') }}" method="post" class="userForm">
+    <h1>{{ block heading }}{{ endblock }}</h1>
+    <br>
+    <h3>Email</h3>
+    <i class="far fa-envelope"></i>
+    <br>
+    {{ data.forms['signup_form'].email }}
+
+    <br>
+
+    <h3>Username</h3>
+    <i class="fas fa-male"></i>
+    <br>
+    {{ data.forms['signup_form'].username }}
+
+    <br>
+
+    <h3>Password</h3>
+    <i class="fas fa-lock"></i>
+    <br>
+    {{ data.forms['signup_form'].password }}
+    <br>
+    {{ data.forms['signup_form'].submit }}
+
+    {{ data.forms['signup_form'].csrf_token }}
+    {{ display_form_errors(data.forms['signup_form']) }}
+</form>

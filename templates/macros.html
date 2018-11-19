@@ -1,0 +1,80 @@
+{% macro nav_link(endpoint, text, icon) %}
+    {% if request.path != url_for(endpoint) %}
+        <a href="{{ url_for(endpoint) }}">
+            <li><i class="{{ icon }} menuIcon"></i><p>{{ text }}</p></li>
+        </a>
+    {% else %}
+        <a href="#">
+            <li class="active"><i class="{{ icon }} menuIcon"></i><p>{{ text }}</p></li>
+        </a>
+    {% endif %}
+
+{% endmacro %}
+
+{% macro display_form_errors(form) %}
+    {% if form.errors.items() %}
+        <ul class="errorMsg">
+            {% for field, errors in form.errors.items() %}
+                {% for error in errors %}
+                    <li><i class="far fa-times-circle"></i>{{ error }}</li>
+                {% endfor %}
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endmacro %}
+
+{% macro show_msgs(with_icons=true) %}
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    <ul class="msgs">
+    {% if with_icons %}
+        {% for category, message in messages %}
+            {% if category == 'errorMsg' %}
+                <li class="{{ category }}"><i class="far fa-times-circle"></i>{{ message }}</li>
+            {% elif category == 'infoMsg' %}
+                <li class="{{ category }}"><i class="INFOICON"></i>{{ message }}</li>
+            {% else %}
+                <li class="{{ category }}">{{ message }}</li>
+            {% endif %}
+        {% endfor %}
+    {% else %}
+    {% for category, message in messages %}
+        <li class="{{ category }}">{{ message }}</li>
+        {% endfor %}
+    {% endif %}
+    </ul>
+  {% endif %}
+{% endwith %}
+{% endmacro %}
+
+
+
+{% macro privacyData(heading, description, btn_text, deleted_text, model_attr, deletable_data=true) %}
+<section class="privacyData">
+    <h3>{{ heading }}</h3>
+    {% if g.user.data()[model_attr] %}
+        <input value="{{g.user.data()[model_attr]}}" disabled>
+    {% else %}
+        <input disabled>
+    {% endif %}
+    <p>{{ description | safe}}</p>
+    {% if g.user.data()[model_attr] and deletable_data%}
+        <div data-label="{{ heading.lower() }}" class="deleteDataButton" onclick="deletePersonalData('{{model_attr}}')">{{ btn_text | safe}}</div>
+    {% else %}
+        <p class="deletedPrivacyData"><i>{{ deleted_text | safe }}</i></p>
+    {% endif %}
+</section>
+{% endmacro %}
+
+
+{% macro input_field(heading, icon, input_field) %}
+<h3>{{ heading }}</h3>
+<i class="{{ icon }}"></i>
+<br>
+{{input_field}}
+<br>
+{% endmacro %}
+
+{% macro footer_link (endpoint, text) %}
+<li><a href="{{ url_for(endpoint) }}">{{text}}</a></li>
+{% endmacro %}

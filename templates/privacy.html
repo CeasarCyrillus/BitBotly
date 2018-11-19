@@ -1,0 +1,80 @@
+{% extends 'templates/base/base.html'%}
+{% from 'templates/macros.html' import privacyData with context %}
+
+{% block content %}
+<div class="fullWidth" id="privacyWrapper">
+<h1>Privacy</h1>
+<br>
+<div class="textBlockWrapper">
+    <p><i>We value privacy and transparancy. Here you can find all the data we're currently holding about your account.
+    You can, at any time, remove any data we're currently holding.</i></p>
+    <br>
+    <p><b>We <span class="underline">NEVER</span> give out your information to any third-parties</b></p>
+    <p>We're GDPR-friendly</p>
+</div>
+<br>
+<br>
+<h2 class="underline">Your data</h2>
+
+
+{{ privacyData(
+    heading='Username',
+    description='We store your username for login and identification purposes.',
+    btn_text="",
+    deleted_text="You can not delete your username",
+    deletable_data=false,
+    model_attr="username"
+    ) }}
+
+{{ privacyData(
+    heading='Password',
+    description='We store your encrypted password in our database for login purposes. Your password is encrypted with the argon2 algorithm',
+    btn_text="",
+    deleted_text="You can not delete your password",
+    deletable_data=false,
+    model_attr="password"
+    ) }}
+
+{{ privacyData(
+    heading='Email',
+    description='We store your email-address for general communications such as marketing and notifications',
+    btn_text='Remove email', 
+    deleted_text="We don't have an email-address associated with your account", 
+    model_attr="email"
+    )}}
+
+{{ privacyData(
+    heading='Firstname',
+    description='We store your firstname for use in communication such as marketing or notifications',
+    btn_text='Remove firstname', 
+    deleted_text="We don't have a firstname associated with your account", 
+    model_attr="first_name"
+    )}}
+
+{{ privacyData(
+    heading='Lastname',
+    description='We store your lastname for use in communication such as marketing or notifications',
+    btn_text='Remove lastname', 
+    deleted_text="We don't have a lastname associated with your account", 
+    model_attr="last_name"
+    )}}
+
+<br>
+<h2 class="underline">Generated data</h2>
+ {{ privacyData(
+    heading='Registration date',
+    description='We store the date you signed up for BitBotly for purposes of progress tracking and important events such as our anniversary together <i class="fas fa-heart"></i>',
+    btn_text='Remove registration date', 
+    deleted_text="We don't have a registration date associated with your account", 
+    model_attr="registered_on"
+    )}} 
+    
+{{ privacyData(
+    heading='Id',
+    description='All users receive a unique id. The id is iteratively generated and is used by our database internally',
+    btn_text="", 
+    deleted_text="You can not delete your id", 
+    model_attr="id",
+    deletable_data=false
+    )}}
+{%endblock%}

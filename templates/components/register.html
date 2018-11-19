@@ -1,0 +1,32 @@
+{% extends 'templates/components/menuBase.html'%}
+{% block id %}registerMenu{% endblock %}
+{% block class %}menuForm{% endblock %}
+{% block heading %}Register{% endblock %}
+{% block content %}
+<form action="{{ url_for('home') }}" method="post">
+    <div class="menuItems">
+        <div class="divider"></div>
+
+        <p class="menuItem">Email</p>
+        <i class="far fa-envelope"></i>
+        <div class="menuItem">{{ data.forms['signup_form'].email }}</div>
+
+        <br>
+
+        <p class="menuItem">Username</p>
+        <i class="fas fa-male"></i>
+        <div class="menuItem">{{ data.forms['signup_form'].username }}</div>
+
+        <br>
+
+        <p class="menuItem">Password</p>
+        <i class="fas fa-lock"></i>
+        <div class="menuItem">{{ data.forms['signup_form'].password }}</div>
+        
+        <div class="divider"></div>
+        <div class="menuItem">{{ data.forms['signup_form'].submit }}</div>
+
+        {{ data.forms['signup_form'].csrf_token }}
+    </form>
+</div>
+{% endblock %}

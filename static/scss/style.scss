@@ -1,0 +1,381 @@
+@import "settings.scss";
+body
+{
+  
+  background-color: $white;
+}
+html
+{
+  overflow-X: hidden;
+  
+}
+*
+{
+  margin: 0;
+  padding: 0;
+  font-family: $textFont;
+}
+
+.fullWidth
+{
+  width: 100vw;
+}
+
+.fullHeigth
+{
+  height: 100vh;
+}
+p.grayDesc
+{
+    color: grey;
+    font-size: 16px;
+    font-style: italic;
+}
+
+.menuForm
+{
+  width: 400px;
+  transform: translateX(400px);
+  .menuItems
+  {
+      text-align:center;
+      input
+      {
+          width: 70%;
+          border: none;
+          border-radius: 3px;
+          height: 100%;
+          font-size: 23px;
+          margin-top: 10px;
+          transition: all .3s;
+          color: $inputColor;
+          background-color: $inputBackgroundColor;
+          &:not([type='submit']):focus
+          {
+              transform: scale(1.2);
+          }
+      }
+      input[type='submit']
+      {
+          color: $interactiveColor;
+          background-color: $interactiveBackgroundColor;
+          
+          box-shadow: $boxShadow;
+          padding: 10px;
+          cursor: pointer;
+          transition: all .3s;
+          &:hover, &:focus
+          {
+              background-color: darken($interactiveBackgroundColor, 20%);
+              color: ligthen($interactiveColor, 10%);
+              transform: scale(1.05);
+          }
+      }
+  }
+}
+
+.newPostWrapper
+{
+    margin-top: 60px;
+    text-align: center;
+    input
+    {
+      margin-bottom: 20px;
+      width: 100%;
+      max-width: 500px;
+      font-size: 20px;
+    }
+    #textArea
+    {
+      height: 20vh;
+      width: 40vw;
+    }
+}
+
+.topImage
+{
+  text-align: center;
+  width: 50vw;
+  margin: 0 auto;
+  img
+  {
+    
+    background-color: #FFF;
+    width: 100%;
+    height: auto;
+    box-shadow: inset $boxShadow;
+    border-radius: 5px;
+  }
+}
+.articleWrapper
+{
+  
+  width: 33vw;
+  padding: 0;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 18px;
+  text-align: left;
+
+
+  .title
+  {
+    
+    font-size: 50px;
+    text-transform: capitalize;
+  }
+  section
+  {
+    padding: 20px;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    margin: 10px 0;
+    img
+    {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+  }
+  section:first-of-type
+  {
+    opacity: 1;
+  }
+  ul
+  {
+
+    li
+    {
+      transform: translateX(30px);
+      padding: 8px 0;
+    }
+  }
+
+  h2
+  {
+    text-decoration: underline;
+    margin-bottom: 10px;
+  }
+}
+
+@media screen and (max-width: 768px)
+{
+  .articleWrapper
+  {
+    width: 90vw;
+    .title
+    {
+      font-size: 40px;
+    }
+  }
+}
+
+.blogWrapper
+{
+  width: 33vw;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 100px;
+  font-size: 18px;
+  text-align: center;
+  
+  .blogPosts
+  {
+    a
+    {
+      text-decoration: none;
+    }
+    text-align: center;
+    list-style: none;
+    padding-top: 100px;
+    .postLink
+    {
+      margin-bottom: 60px;
+      box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.4);
+      overflow-y: hidden;
+      overflow-x: hidden;
+      position: relative;
+      z-index: 0;
+      cursor: pointer;
+      // animated properties
+
+      .postThumbnail
+      {
+        transition: all .4s;
+        width: 100%;
+        height: auto;
+        overflow-x: hidden;
+      }
+      .postTitle
+      {
+        
+        text-align: center;
+        font-size: 26px;
+        color: $white;
+        background-color: rgba(249, 188, 32, 0.9);
+        padding: 2px;
+      }
+
+      .postDesc
+      {
+        padding: 0 15px;
+        background-color: rgba(255, 255, 255, 0.8);
+        color: $darkColor;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px)
+{
+  .blogWrapper
+  { 
+    width: 90vw;
+    opacity: 1;
+    padding-top: 50px;
+    .blogPosts
+    {
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+      padding-top: 50px;
+      .postLink
+      {
+        max-height: unset;
+        .postThumbnail
+        {
+          width: 100%;
+          height: auto;
+          transform: scale(1.05);
+        }
+        .postTitle
+        {
+          position: relative;
+          top: 0;
+          left: 0;
+        }
+
+        .postDesc
+        {
+          padding: 10px 15px;
+          position: relative;
+          color: $darkColor;
+        }      
+      }
+    }
+  }
+}
+
+.userForm
+{
+  display: block;
+  min-width: 500px;
+  margin-top: 100px !important;
+  padding: 20px;
+  width: 20vw;
+  box-shadow: $boxShadow;
+  border-radius: 5px;
+  margin: 0 auto;
+  color: $darkColor;
+  h3, i
+  {
+    display: inline;
+    font-size: 20px;
+  }
+
+  input
+  {
+    margin-bottom: 25px;
+    font-size: 20px;
+    transition: all .3s;
+    &:focus
+    {
+      transform: scale(1.1);
+    }
+    &[type="submit"]
+    {
+      border: none;
+      padding: 10px;
+      margin: 0;
+      width: 100%;
+      cursor: pointer;
+      &:hover, &:focus
+      {
+        background-color: $fire;
+        transform: scale(1.05);
+      }
+    }
+  }
+  textarea
+  {
+    width: 100%;
+    height: 100px;
+  }
+  .errorMsg, .infoMsg
+  {
+    list-style: none;
+    color: $darkColor;
+    background-color: rgba(255, 0, 0, 0.4);
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    margin: 10px;
+    padding: 10px;
+    i
+    {
+      color: red;
+      vertical-align: middle;
+      margin: 5px;
+    }
+  }
+  .infoMsg
+  {
+    background-color: rgba(0, 255, 0, 0.4);
+    i
+    {
+      color: green;
+    }
+  }
+}
+
+@media only screen and (max-width: 768px)
+{
+  .userForm
+  {
+    margin-top: 0 !important;
+    min-width: unset;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    padding-bottom: 10px;
+    background-color: $white;
+    z-index: 100000;
+    input, h1
+    {
+      padding-left: 10px;
+      margin-left: 10px;
+    }
+    h3
+    {
+      margin-left: 10px;
+    }
+    input
+    {
+      border: 2px solid rgba(0, 0, 0, 0.4);
+    }
+    input[type="submit"]
+    {
+      margin: 0;
+      margin: 0 auto;
+      text-align: center;
+    }
+    
+  }
+}
+
+.underline
+{
+  text-decoration: underline !important;
+}
+
+.textBlockWrapper
+{
+  text-align: left;
+}

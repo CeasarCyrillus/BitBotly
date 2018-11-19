@@ -1,0 +1,9 @@
+<div id="{% block id %}{% endblock %}" class="menuBase {% block class %}{% endblock %}" status="{% block status %}closed{% endblock %}">
+    <i class="fas fa-chevron-circle-left closeMenuIcon" onclick="closeCurrentMenu(); toggleMainMenu();"></i>
+    <h1>
+        {% block heading %}
+        {% endblock %}
+    </h1>
+    {% block content%}
+    {% endblock %}
+</div>

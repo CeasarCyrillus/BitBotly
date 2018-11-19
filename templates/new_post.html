@@ -1,0 +1,62 @@
+{% extends 'templates/base/base.html' %}
+{% block content %}
+<div class="fullWidth newPostWrapper">
+    <h1>New Post</h1>
+    <select onChange="editPost(event);">
+        <option value="0">-- new post --</option>
+        {% for post in data.posts %}
+            {% if data.post and data.post.url_title == post.url_title %}
+                <option value="{{ post.url_title }}" selected>{{ post.title }}</option>
+                {% else %}
+                <option value="{{ post.url_title }}">{{ post.title }}</option>
+                {% endif %}
+        {% endfor %}
+    </select>
+    <form  method="post">
+        {% if not data.post %}
+            <p>Image URL*</p>
+            {{ data.forms['new_post_form'].main_image }}
+            <p>Title*</p>
+            {{ data.forms['new_post_form'].title }}
+            <p>Description*</p>
+             {{ data.forms['new_post_form'].description }}
+        {% else %}
+            <p>Image URL*</p>
+            {{ data.forms['new_post_form'].main_image(value=data.post['main_image']) }}
+            <p>Title*</p>
+            {{ data.forms['new_post_form'].title(value=data.post['title']) }}
+            <p>Description*</p>
+             {{ data.forms['new_post_form'].description(value=data.post['description']) }}
+        {% endif %}
+
+        <p>Content*</p>
+        {{ data.forms['new_post_form'].content(id="textArea") }}
+        <br>
+        {{ data.forms['new_post_form'].submit }}
+        {% if data.post %}
+            <a href="/blog/{{ data.post.url_title }}" target="_blank">Preview</a>
+        {% endif %}
+
+        {{ data.forms['new_post_form'].csrf_token }}
+    </form>
+</div>
+<script type="text/javascript">
+function editPost(event)
+{
+    var postToEdit = event.target.value;
+    if(postToEdit != "0")
+    {
+        document.location.replace("{{ url_for('new_post') }}/"+postToEdit);
+    }
+    else
+    {
+        document.location.replace("{{ url_for('new_post') }}");
+    }
+    
+}
+
+var content = '{{ data.post["content"] | escapejs }}';
+document.getElementById("textArea").innerHTML = content;
+
+</script>
+{% endblock %}

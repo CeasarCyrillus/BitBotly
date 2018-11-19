@@ -1,0 +1,117 @@
+{
+	// Place your snippets for html here. Each snippet is defined under a snippet name and has a prefix, body and 
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+	// same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+	"For_loop": {
+        "prefix": "1url_for2",
+        "body": [
+          "for (const ${2:element} of ${1:array}) {",
+          "\t$0",
+          "}"
+        ],
+        "description": "For Loop"
+	},
+	"url_stat": {
+        "prefix": "url_stat",
+        "body": [
+			"{{ url_for('static', filename='${1:element}') }}"
+        ],
+        "description": "url_for from flask, for static resources"
+	},
+	"url_for":
+	{
+		"prefix": "url_for",
+		"body": [
+			"{{ url_for('${1:element}') }}"
+        		],
+        "description": "url_for from flask, for templates/functions"
+	},
+	"component":
+	{
+		"prefix": "component",
+		"body":[
+				"{% assets '${1:component name}.css' %}",
+				"<link rel='stylesheet' type='text/css' href='{{ ASSET_URL }}'>",
+				"{% endassets %}",
+				"",
+				"{% assets '${1:component name}.js' %}",
+				"<script type='text/javascript' src='{{ ASSET_URL }}''></script>",
+				"{% endassets %}"
+		],
+		"description": "creates a template for a component"
+	},
+	"bundle component":
+	{
+		"prefix": "bundle component",
+		"body":[
+			"${1:component name}Js = Bundle('../templates/components/js/${1:component name}.js', filters='jsmin', output='gen/${1:component name}.js')",
+			"${1:component name}Css = Bundle('../templates/components/css/${1:component name}.css', filters='cssmin', output='gen/${1:component name}.css')",
+			"",
+			"assets.register('${1:component name}.js', ${1:component name}Js)",
+			"assets.register('${1:component name}.css', ${1:component name}Css)"
+
+		],
+		"description": "Bundles a component"
+	},
+	"extend component":
+	{
+		"prefix" :"extend component",
+		"body": [
+			"{% extends 'templates/components/${1:component name}.html'%}"
+		],
+		"description": "Extend the component with another component"
+	},
+	"jinjablock":
+	{
+		"prefix" :"jinjablock",
+		"body": [
+			"{% block ${1:block name} %}${2:block content}{% endblock %}"
+		],
+		"description": "Extend the component with another component"
+	},
+	"console log":
+	{
+		"prefix" :"log",
+		"body": [
+			"console.log(${1:data});"
+		],
+		"description": "log data to command line"
+	},
+	"import scss":
+	{
+		"prefix" :"import",
+		"body": [
+			"@import './static/scss/settings.scss';"
+		],
+		"description": "imports the global scss file"
+	},
+	"import macro":
+	{
+		"prefix": "macro",
+		"body": [
+			"{% from 'templates/macros.html' import ${1:function name}${2: with context} %}"
+		]
+	},
+	"media query":
+	{
+		"prefix":"@media",
+		"body": [
+			"@media only screen and (max-width: ${1:max width}px)",
+			"{",
+			"${2:css rules}",
+			"}"
+		]	
+	}
+
+	
+}

@@ -1,0 +1,125 @@
+@import "./static/scss/settings.scss";
+#mainMenu
+{
+    box-shadow: -10px 0px 50px rgba(0, 0, 0, 0.2);
+    width: 300px;
+    background-color: $menuBackColor;
+    transform: translateX(300px);
+    transition: all .3s ease-in-out;
+    &.show
+    {
+        transform: translateX(0);
+        #menuItems
+        {
+            transform: translateX(0);
+            transform: scale(1);
+        }
+    }
+
+    h1
+    {
+        font-size: 30px;
+        text-align: center;
+        color: $darkColor;
+        cursor: default;
+    }
+    .closeMenuIcon
+    {
+        display: none;
+    }
+    #menuItems
+    {
+        list-style-type: none;
+        color: $darkColor;
+        font-size: 25px;
+        transition: transform .6s cubic-bezier(0.215, 0.610, 0.355, 1);
+        transform: translateX(100%);
+        transform: scale(0);
+        .menuGroup
+        {
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+            margin-bottom: 15px;
+            padding: 5px 0;
+        }
+        a
+        {
+            color: $darkColor;
+            text-decoration: none;
+        }
+        li
+        {    
+            display: block;
+            position: relative;  
+            cursor: pointer;
+            text-align: right;
+            padding: 10px;
+            margin: 0px 3px;
+            transition: color .5s;
+            &:hover
+            {
+                color: $white;
+                background-color: $interactiveBackgroundColor;
+                border-radius: 10px;
+                .menuIcon
+                {
+                    color: $white;
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+            }
+            &.active
+            {
+                background-color: gray;
+                text-decoration: underline;
+                cursor: default;
+                color: $white;
+                border-radius: 10px;
+                .menuIcon
+                {
+                    color: $white;
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+            }
+            
+            .menuIcon
+            {
+                
+                margin: auto;
+                color: $darkColor;
+                position: absolute;
+                left: 10px;
+                top: 15px;
+                transition: all .3s;
+                opacity: 0.5;
+                transform: translateX(1vw);
+            }
+        }
+    }
+}
+@media screen and (max-width: 768px)
+{
+    #mainMenu
+    {
+        width: 100vw;
+        transform: translateX(100vw);
+        box-shadow: none;
+        #menuItems
+        {
+            li
+            {
+                .menuIcon
+                {
+                    opacity: 1;
+                    transform: none;
+                    color: $darkColor;
+                    left: 20%;
+                    &:hover
+                    {
+                        color: $white;
+                    }
+                }
+            }
+        }
+    }
+}

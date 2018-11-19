@@ -1,0 +1,243 @@
+body {
+  background-color: #FFF; }
+
+html {
+  overflow-X: hidden; }
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Verdana; }
+
+.fullWidth {
+  width: 100vw; }
+
+.fullHeigth {
+  height: 100vh; }
+
+p.grayDesc {
+  color: grey;
+  font-size: 16px;
+  font-style: italic; }
+
+.menuForm {
+  width: 400px;
+  transform: translateX(400px); }
+  .menuForm .menuItems {
+    text-align: center; }
+    .menuForm .menuItems input {
+      width: 70%;
+      border: none;
+      border-radius: 3px;
+      height: 100%;
+      font-size: 23px;
+      margin-top: 10px;
+      transition: all .3s;
+      color: #1D3557;
+      background-color: #457B9D; }
+      .menuForm .menuItems input:not([type='submit']):focus {
+        transform: scale(1.2); }
+    .menuForm .menuItems input[type='submit'] {
+      color: #1D3557;
+      background-color: #457B9D;
+      box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.4);
+      padding: 10px;
+      cursor: pointer;
+      transition: all .3s; }
+      .menuForm .menuItems input[type='submit']:hover, .menuForm .menuItems input[type='submit']:focus {
+        background-color: #264356;
+        color: ligthen(#1D3557, 10%);
+        transform: scale(1.05); }
+
+.newPostWrapper {
+  margin-top: 60px;
+  text-align: center; }
+  .newPostWrapper input {
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 500px;
+    font-size: 20px; }
+  .newPostWrapper #textArea {
+    height: 20vh;
+    width: 40vw; }
+
+.topImage {
+  text-align: center;
+  width: 50vw;
+  margin: 0 auto; }
+  .topImage img {
+    background-color: #FFF;
+    width: 100%;
+    height: auto;
+    box-shadow: inset 0px 10px 50px rgba(0, 0, 0, 0.4);
+    border-radius: 5px; }
+
+.articleWrapper {
+  width: 33vw;
+  padding: 0;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 18px;
+  text-align: left; }
+  .articleWrapper .title {
+    font-size: 50px;
+    text-transform: capitalize; }
+  .articleWrapper section {
+    padding: 20px;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    margin: 10px 0; }
+    .articleWrapper section img {
+      width: 100%;
+      margin-bottom: 20px; }
+  .articleWrapper section:first-of-type {
+    opacity: 1; }
+  .articleWrapper ul li {
+    transform: translateX(30px);
+    padding: 8px 0; }
+  .articleWrapper h2 {
+    text-decoration: underline;
+    margin-bottom: 10px; }
+
+@media screen and (max-width: 768px) {
+  .articleWrapper {
+    width: 90vw; }
+    .articleWrapper .title {
+      font-size: 40px; } }
+
+.blogWrapper {
+  width: 33vw;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 100px;
+  font-size: 18px;
+  text-align: center; }
+  .blogWrapper .blogPosts {
+    text-align: center;
+    list-style: none;
+    padding-top: 100px; }
+    .blogWrapper .blogPosts a {
+      text-decoration: none; }
+    .blogWrapper .blogPosts .postLink {
+      margin-bottom: 60px;
+      box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.4);
+      overflow-y: hidden;
+      overflow-x: hidden;
+      position: relative;
+      z-index: 0;
+      cursor: pointer; }
+      .blogWrapper .blogPosts .postLink .postThumbnail {
+        transition: all .4s;
+        width: 100%;
+        height: auto;
+        overflow-x: hidden; }
+      .blogWrapper .blogPosts .postLink .postTitle {
+        text-align: center;
+        font-size: 26px;
+        color: #FFF;
+        background-color: rgba(249, 188, 32, 0.9);
+        padding: 2px; }
+      .blogWrapper .blogPosts .postLink .postDesc {
+        padding: 0 15px;
+        background-color: rgba(255, 255, 255, 0.8);
+        color: #1D3557; }
+
+@media screen and (max-width: 768px) {
+  .blogWrapper {
+    width: 90vw;
+    opacity: 1;
+    padding-top: 50px; }
+    .blogWrapper .blogPosts {
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+      padding-top: 50px; }
+      .blogWrapper .blogPosts .postLink {
+        max-height: unset; }
+        .blogWrapper .blogPosts .postLink .postThumbnail {
+          width: 100%;
+          height: auto;
+          transform: scale(1.05); }
+        .blogWrapper .blogPosts .postLink .postTitle {
+          position: relative;
+          top: 0;
+          left: 0; }
+        .blogWrapper .blogPosts .postLink .postDesc {
+          padding: 10px 15px;
+          position: relative;
+          color: #1D3557; } }
+
+.userForm {
+  display: block;
+  min-width: 500px;
+  margin-top: 100px !important;
+  padding: 20px;
+  width: 20vw;
+  box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.4);
+  border-radius: 5px;
+  margin: 0 auto;
+  color: #1D3557; }
+  .userForm h3, .userForm i {
+    display: inline;
+    font-size: 20px; }
+  .userForm input {
+    margin-bottom: 25px;
+    font-size: 20px;
+    transition: all .3s; }
+    .userForm input:focus {
+      transform: scale(1.1); }
+    .userForm input[type="submit"] {
+      border: none;
+      padding: 10px;
+      margin: 0;
+      width: 100%;
+      cursor: pointer; }
+      .userForm input[type="submit"]:hover, .userForm input[type="submit"]:focus {
+        background-color: #f9bc20;
+        transform: scale(1.05); }
+  .userForm textarea {
+    width: 100%;
+    height: 100px; }
+  .userForm .errorMsg, .userForm .infoMsg {
+    list-style: none;
+    color: #1D3557;
+    background-color: rgba(255, 0, 0, 0.4);
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    margin: 10px;
+    padding: 10px; }
+    .userForm .errorMsg i, .userForm .infoMsg i {
+      color: red;
+      vertical-align: middle;
+      margin: 5px; }
+  .userForm .infoMsg {
+    background-color: rgba(0, 255, 0, 0.4); }
+    .userForm .infoMsg i {
+      color: green; }
+
+@media only screen and (max-width: 768px) {
+  .userForm {
+    margin-top: 0 !important;
+    min-width: unset;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    padding-bottom: 10px;
+    background-color: #FFF;
+    z-index: 100000; }
+    .userForm input, .userForm h1 {
+      padding-left: 10px;
+      margin-left: 10px; }
+    .userForm h3 {
+      margin-left: 10px; }
+    .userForm input {
+      border: 2px solid rgba(0, 0, 0, 0.4); }
+    .userForm input[type="submit"] {
+      margin: 0;
+      margin: 0 auto;
+      text-align: center; } }
+
+.underline {
+  text-decoration: underline !important; }
+
+.textBlockWrapper {
+  text-align: left; }
